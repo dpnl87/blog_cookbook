@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: blog_cookbook
+# Cookbook Name:: blog
 # Recipe:: default
 #
 # Copyright 2015, Daniel Paulus
