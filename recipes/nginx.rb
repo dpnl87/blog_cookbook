@@ -16,5 +16,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-include_recipe 'blog::nginx'
+node.set['nginx']['install_method'] = 'source'
+node.set['nginx']['source']['version'] = '1.7.9'
+node.set['nginx']['version'] = '1.7.9'
+node.set['nginx']['source']['default_configure_flags'] = %w(
+  --prefix=/usr/local/nginx
+  --conf-path=/etc/nginx/nginx.conf
+  --sbin-path=/usr/local/sbin/
+)
+node.set['nginx']['source']['modules'] = %w(
+  nginx::http_ssl_module
+  nginx::http_gzip_static_module
+  nginx::http_spdy_module
+)
+node.set['nginx']['log_dir'] = '/var/log/nginx'
+node.override['nginx']['binary'] = '/usr/local/sbin/nginx'
+node.set['nginx']['default_site_enabled'] = true
+include_recipe 'nginx::source'
