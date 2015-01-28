@@ -16,9 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-node.set['nginx']['install_method'] = 'source'
-node.set['nginx']['source']['version'] = '1.7.9'
 node.set['nginx']['version'] = '1.7.9'
+node.set['nginx']['install_method'] = 'source'
+
+sha256 = '1aafc7f0f530ddaa86d4ba24c14941ce0a584cc896f8261d6218f99625318f8a'
+node.set['nginx']['source']['version'] = '1.7.9'
+node.set['nginx']['source']['url'] = 'http://nginx.org/download/nginx-1.7.9.tar.gz'
+node.set['nginx']['source']['checksum'] = sha256
 node.set['nginx']['source']['default_configure_flags'] = %w(
   --prefix=/usr/local/nginx
   --conf-path=/etc/nginx/nginx.conf
