@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: blog
-# Recipe:: default
+# Recipe:: repo
 #
 # Copyright 2015, Daniel Paulus
 #
@@ -16,6 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-include_recipe 'blog::nginx'
-include_recipe 'blog::repo'
+packagecloud_repo 'dpnl87/blog' do
+  type 'rpm'
+end
